@@ -5,7 +5,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var STEP_LENGTH = 1;
-var CELL_SIZE = 9;
+var CELL_SIZE = 4;
 var BORDER_WIDTH = 2;
 var MAX_FONT_SIZE = 500;
 var MAX_ELECTRONS = 100;
@@ -13,13 +13,12 @@ var CELL_DISTANCE = CELL_SIZE + BORDER_WIDTH;
 
 // shorter for brighter paint
 // be careful of performance issue
-var CELL_REPAINT_INTERVAL = [300, // from
-500];
+var CELL_REPAINT_INTERVAL = [300,500];
 
 // to
 var BG_COLOR = '#333';
 var BORDER_COLOR = '#13191f';
-var CELL_HIGHLIGHT = '#2196f3';
+var CELL_HIGHLIGHT = '#f196f3';
 var ELECTRON_COLOR = '#00b07c';
 var FONT_COLOR = '#d50000';
 
@@ -954,4 +953,8 @@ shape.print('opa!',"BLUE");
 // prevent zoom
 document.addEventListener('touchmove', function (e) {
     return e.preventDefault();
+});
+$(document).ready(function(){
+  var scale = .9;
+  window.reload();
 });
