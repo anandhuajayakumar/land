@@ -853,6 +853,7 @@ var shape = {
 shape.init();
 shape.clear();
 shape.print('opa!');
+shape.print('qq');
 
 // prevent zoom
 document.addEventListener('touchmove', function (e) {
