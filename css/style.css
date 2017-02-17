@@ -1,5 +1,6 @@
-html{
-	font-family: 'Work Sans', sans-serif;
+@font-face {
+	font-family: "NexaBold";
+    src: url("./fonts/Nexa Bold.otf") format("opentype");
 }
 #input {
   position: absolute;
@@ -10,8 +11,9 @@ html{
   background: none;
   border: none;
   outline: none;
-  color: #fff;
-  font-size: 3em;
+  color: #536dfe;
+  font-size: 50px;
+  font-weight:bold;
   text-align: center;
   z-index: 999;
   opacity: 1;
@@ -21,7 +23,7 @@ html{
   transition: opacity .3s;
 }
 #input:hover, #input:focus {
-	color:#82b1ff;
+	color:#304ffe;
 	opacity: 1;
 }
 

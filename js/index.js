@@ -17,13 +17,12 @@ var CELL_REPAINT_INTERVAL = [300, // from
 500];
 
 // to
-var BG_COLOR = '#1d2227';
+var BG_COLOR = '#333';
 var BORDER_COLOR = '#13191f';
-var CELL_HIGHLIGHT = '#328bf6';
+var CELL_HIGHLIGHT = '#2196f3';
 var ELECTRON_COLOR = '#00b07c';
-var FONT_COLOR = '#ff5353';
+var FONT_COLOR = '#d50000';
 
-var FONT_FAMILY = 'Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuan Yi Micro Hei", sans-serif';
 
 var DPR = window.devicePixelRatio || 1;
 
@@ -704,8 +703,8 @@ var shape = {
 
         var _ref12$fontWeight = _ref12.fontWeight;
         var fontWeight = _ref12$fontWeight === undefined ? 'bold' : _ref12$fontWeight;
-        var _ref12$fontFamily = 'Work Sans';
-        var fontFamily = _ref12$fontFamily === undefined ? FONT_FAMILY : _ref12$fontFamily;
+        var _ref12$fontFamily = 'NexaBold';
+        var fontFamily = 'NexaBold';
         var width = shapeLayer.width;
         var height = shapeLayer.height;
 
