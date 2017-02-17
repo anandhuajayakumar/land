@@ -82,7 +82,7 @@ var FullscreenCanvas = function () {
         this.width = innerWidth;
         this.height = innerHeight;
 
-        var scale = disableScale ? 1 : DPR;
+        var scale = .9;
 
         this.realWidth = canvas.width = innerWidth * scale;
         this.realHeight = canvas.height = innerHeight * scale;
@@ -704,7 +704,7 @@ var shape = {
 
         var _ref12$fontWeight = _ref12.fontWeight;
         var fontWeight = _ref12$fontWeight === undefined ? 'bold' : _ref12$fontWeight;
-        var _ref12$fontFamily = _ref12.fontFamily;
+        var _ref12$fontFamily = 'Work Sans';
         var fontFamily = _ref12$fontFamily === undefined ? FONT_FAMILY : _ref12$fontFamily;
         var width = shapeLayer.width;
         var height = shapeLayer.height;
