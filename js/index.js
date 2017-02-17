@@ -5,10 +5,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var STEP_LENGTH = 1;
-var CELL_SIZE = 4;
+var CELL_SIZE = 6;
 var BORDER_WIDTH = 2;
 var MAX_FONT_SIZE = 500;
-var MAX_ELECTRONS = 100;
+var MAX_ELECTRONS = 90;
 var CELL_DISTANCE = CELL_SIZE + BORDER_WIDTH;
 
 // shorter for brighter paint
@@ -19,8 +19,8 @@ var CELL_REPAINT_INTERVAL = [300,500];
 var BG_COLOR = '#333';
 var BORDER_COLOR = '#13191f';
 var CELL_HIGHLIGHT = '#f196f3';
-var ELECTRON_COLOR = '#00b07c';
-var FONT_COLOR = '#d50000';
+var ELECTRON_COLOR = '#f0b07c';
+var FONT_COLOR = '#1a237e';
 
 
 var DPR = window.devicePixelRatio || 1;
@@ -620,7 +620,7 @@ var shape = {
 
     get electronOptions() {
         return {
-            speed: 2,
+            speed: 1,
             color: FONT_COLOR,
             lifeTime: _.random(300, 500)
         };
@@ -629,7 +629,7 @@ var shape = {
     get cellOptions() {
         return {
             background: FONT_COLOR,
-            electronCount: _.random(1, 4),
+            electronCount: _.random(1, 1),
             electronOptions: this.electronOptions
         };
     },
@@ -748,7 +748,7 @@ var shape = {
                 this.spiral({
                     reverse: true,
                     lifeTime: 500,
-                    electronCount: 2
+                    electronCount: 1
                 });
             }
 
@@ -953,8 +953,4 @@ shape.print('opa!',"BLUE");
 // prevent zoom
 document.addEventListener('touchmove', function (e) {
     return e.preventDefault();
-});
-$(document).ready(function(){
-  var scale = .9;
-  window.reload();
 });
