@@ -5,23 +5,25 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var STEP_LENGTH = 1;
-var CELL_SIZE = 6;
+var CELL_SIZE = 10;
 var BORDER_WIDTH = 2;
 var MAX_FONT_SIZE = 500;
-var MAX_ELECTRONS = 90;
+var MAX_ELECTRONS = 100;
 var CELL_DISTANCE = CELL_SIZE + BORDER_WIDTH;
 
 // shorter for brighter paint
 // be careful of performance issue
-var CELL_REPAINT_INTERVAL = [300,500];
+var CELL_REPAINT_INTERVAL = [300, // from
+500];
 
 // to
-var BG_COLOR = '#333';
+var BG_COLOR = '#0c1117';
 var BORDER_COLOR = '#13191f';
-var CELL_HIGHLIGHT = '#f196f3';
-var ELECTRON_COLOR = '#f0b07c';
-var FONT_COLOR = '#1a237e';
+var CELL_HIGHLIGHT = '#0f0';
+var ELECTRON_COLOR = '#fff';
+var FONT_COLOR = '#f71c1c';
 
+var FONT_FAMILY = "NexaBold";
 
 var DPR = window.devicePixelRatio || 1;
 
@@ -55,6 +57,7 @@ var FullscreenCanvas = function () {
         _classCallCheck(this, FullscreenCanvas);
 
         var canvas = document.createElement('canvas');
+		$("canvas").css("height",window.innerHeight*.75);
         var context = canvas.getContext('2d');
 
         this.canvas = canvas;
@@ -80,7 +83,7 @@ var FullscreenCanvas = function () {
         this.width = innerWidth;
         this.height = innerHeight;
 
-        var scale = .9;
+        var scale = disableScale ? 1 : DPR;
 
         this.realWidth = canvas.width = innerWidth * scale;
         this.realHeight = canvas.height = innerHeight * scale;
@@ -620,7 +623,7 @@ var shape = {
 
     get electronOptions() {
         return {
-            speed: 1,
+            speed: 2,
             color: FONT_COLOR,
             lifeTime: _.random(300, 500)
         };
@@ -629,7 +632,7 @@ var shape = {
     get cellOptions() {
         return {
             background: FONT_COLOR,
-            electronCount: _.random(1, 1),
+            electronCount: _.random(1, 4),
             electronOptions: this.electronOptions
         };
     },
@@ -702,8 +705,8 @@ var shape = {
 
         var _ref12$fontWeight = _ref12.fontWeight;
         var fontWeight = _ref12$fontWeight === undefined ? 'bold' : _ref12$fontWeight;
-        var _ref12$fontFamily = 'NexaBold';
-        var fontFamily = 'NexaBold';
+        var _ref12$fontFamily = _ref12.fontFamily;
+        var fontFamily = _ref12$fontFamily === undefined ? FONT_FAMILY : _ref12$fontFamily;
         var width = shapeLayer.width;
         var height = shapeLayer.height;
 
@@ -713,6 +716,7 @@ var shape = {
             ctx.font = fontWeight + ' ' + MAX_FONT_SIZE + 'px ' + fontFamily;
 
             var scale = width / ctx.measureText(text).width;
+			scale=scale*.95;
             var fontSize = Math.min(MAX_FONT_SIZE, MAX_FONT_SIZE * scale * 0.8);
 
             ctx.font = fontWeight + ' ' + fontSize + 'px ' + fontFamily;
@@ -742,32 +746,19 @@ var shape = {
 
         this.clear();
 
-        if (text !== 0 && !text) {
-            if (isBlank) {
-                // release
-                this.spiral({
-                    reverse: true,
-                    lifeTime: 500,
-                    electronCount: 1
-                });
-            }
-
-            return;
-        }
-
         this.spiral();
 
         this.lastText = text;
 
-        var matrix = this.lastMatrix = _.shuffle(this.getTextMatrix(text, options));
+        var matrix = this.lastMatrix = this.getTextMatrix(text, options);
 
         matrix.forEach(function (_ref13) {
             var i = _ref13[0];
             var j = _ref13[1];
 
-            var cell = new Cell(i, j, _this2.cellOptions);
+            var cell = new Cell(i-5, j, _this2.cellOptions);
 
-            cell.scheduleUpdate(200);
+            //cell.scheduleUpdate(200);
             cell.pin();
         });
     },
@@ -850,12 +841,73 @@ var shape = {
         }
     }
 };
+
+var timer = undefined;
+
+function queue() {
+    var text = 'opa!';
+
+    var i = 0;
+    var max = text.length;
+
+    var run = function run() {
+        if (i >= max) return;
+		setTimeout(250);
+        shape.print(text.slice(0, ++i));
+        timer = setTimeout(run, 1e3 + i);
+    };
+
+    run();
+}
+/*
+function countdown() {
+    var arr = _.range(3, 0, -1);
+
+    var i = 0;
+    var max = arr.length;
+
+    var run = function run() {
+        if (i >= max) {
+            shape.clear();
+            return galaxy();
+        }
+
+        shape.print(arr[i++]);
+        setTimeout(run, 1e3 + i);
+    };
+
+    run();
+}
+*/
+/*
+function galaxy() {
+    shape.spiral({
+        radius: 0,
+        increment: 1,
+        lifeTime: 100,
+        electronCount: 1
+    });
+
+    timer = setTimeout(galaxy, 16);
+}
+*/
+function ring() {
+    shape.spiral();
+    timer = setTimeout(ring, 16);
+}
 shape.init();
-shape.clear();
 shape.print('opa!');
-shape.print('qq');
+shape.clear();
 
 // prevent zoom
 document.addEventListener('touchmove', function (e) {
     return e.preventDefault();
+});
+$(document).ready(function(){
+	
+	setTimeout(function(){
+		//shape.clear();
+		queue();
+	}, 100);
+   
 });

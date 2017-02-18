@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "NexaBold";
-    src: url("./fonts/Nexa Bold.otf") format("opentype");
+    src: url("./fonts/NexaBold.otf") format("opentype");
 }
 #input {
   position: absolute;
@@ -11,20 +11,19 @@
   background: none;
   border: none;
   outline: none;
-  color: #536dfe;
-  font-size: 50px;
-  font-weight:bold;
+  color: #3f51b5;
+  font-size: 3em;
   text-align: center;
   z-index: 999;
-  opacity: 1;
+  font-family:"Helvetica";
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   -webkit-transition: opacity .3s;
   transition: opacity .3s;
 }
 #input:hover, #input:focus {
-	color:#304ffe;
-	opacity: 1;
+  opacity: 1;
+  color: #1851ff;
 }
 
 body {
@@ -40,21 +39,3 @@ body {
       -ms-user-select: none;
           user-select: none;
 }
-.wrap {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	-webkit-box-align: center;
-		-ms-flex-align: center;
-			align-items: center;
-	-webkit-box-pack: center;
-		-ms-flex-pack: center;
-			justify-content: center;
-	z-index:0;
-}
-.time-to {
-	text-align: center;
-	letter-spacing: 2px;
-}
-.time-to span {
-	font-family: 'Work Sans', sans-serif;
-	display: block;
