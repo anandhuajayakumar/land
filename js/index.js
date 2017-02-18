@@ -756,7 +756,7 @@ var shape = {
             var i = _ref13[0];
             var j = _ref13[1];
 
-            var cell = new Cell(i-5, j, _this2.cellOptions);
+            var cell = new Cell(i-15, j, _this2.cellOptions);
 
             //cell.scheduleUpdate(200);
             cell.pin();
