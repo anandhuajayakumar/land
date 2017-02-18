@@ -20,7 +20,7 @@ var CELL_REPAINT_INTERVAL = [300, // from
 var BG_COLOR = '#0c1117';
 var BORDER_COLOR = '#13191f';
 var CELL_HIGHLIGHT = '#0f0';
-var ELECTRON_COLOR = '#fff';
+var ELECTRON_COLOR = '#13191f';
 var FONT_COLOR = '#f44';
 
 var FONT_FAMILY = "NexaBold";
@@ -510,28 +510,7 @@ function handlePointer() {
     };
 
     function print(isMove, _ref7) {
-        var clientX = _ref7.clientX;
-        var clientY = _ref7.clientY;
-
-        var i = Math.floor(clientY / CELL_DISTANCE);
-        var j = Math.floor(clientX / CELL_DISTANCE);
-
-        if (isMove && isSameCell(i, j)) {
-            return;
-        }
-
-        var cell = new Cell(i, j, {
-            background: CELL_HIGHLIGHT,
-            forceElectrons: true,
-            electronCount: isMove ? 2 : 4,
-            electronOptions: {
-                speed: 3,
-                lifeTime: isMove ? 500 : 1000,
-                color: CELL_HIGHLIGHT
-            }
-        });
-
-        cell.paintNextTo(mainLayer);
+       
     }
 
     var handlers = {
@@ -562,21 +541,6 @@ function handlePointer() {
             return !rec || clientX !== rec.clientX || clientY !== rec.clientY;
         });
     }
-
-    ['mousedown', 'touchstart', 'mousemove', 'touchmove'].forEach(function (name) {
-        var isMove = /move/.test(name);
-        var isTouch = /touch/.test(name);
-
-        var fn = print.bind(null, isMove);
-
-        handlers[name] = function handler(evt) {
-            if (isTouch) {
-                filterTouches(evt.touches).forEach(fn);
-            } else {
-                fn(evt);
-            }
-        };
-    });
 
     var events = Object.keys(handlers);
 
