@@ -21,7 +21,7 @@ var BG_COLOR = '#0c1117';
 var BORDER_COLOR = '#13191f';
 var CELL_HIGHLIGHT = '#0f0';
 var ELECTRON_COLOR = '#fff';
-var FONT_COLOR = '#f71c1c';
+var FONT_COLOR = '#f44';
 
 var FONT_FAMILY = "NexaBold";
 
