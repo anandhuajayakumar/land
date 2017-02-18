@@ -2,6 +2,45 @@
 	font-family: "NexaBold";
     src: url("./fonts/NexaBold.otf") format("opentype");
 }
+@media(max-width:500px){
+	#mlogo{
+		margin-bottom:88%;
+	}
+	.time-to{
+		display:none;
+	}
+	.time-to span{
+		font-size:25px;
+	}
+	#input p{
+		font-size:20px;
+		color:#82b1ff;
+	}
+}
+@media(min-width:501px){
+	#mlogo{
+		margin-bottom:76%;
+	}
+	.time-to{
+		display:none;
+	}
+	.time-to span{
+		font-size:35px;
+	}
+	#input p{
+		font-size:30px;
+		color:#82b1ff;
+	}
+}
+#mlogo{
+	z-index:999;
+	font-size:20px;
+	color:#dd4400;
+	display:none;
+}
+#mlogo img{
+	width:100%;
+}
 #input {
 	position: absolute;
 	bottom: 10px;
@@ -11,11 +50,11 @@
 	background: none;
 	border: none;
 	outline: none;
-	color: #1851ff;
+	color: #f22;
 	font-size: 3em;
 	text-align: center;
 	z-index: 999;
-	opacity:.9; 
+	opacity:.8; 
 	font-family:"Helvetica";
 	-webkit-transform: translateX(-50%);
 		transform: translateX(-50%);
@@ -24,9 +63,8 @@
 }
 #input:hover, #input:focus {
   opacity: 1;
-  color: #1851ff;
+  color: #f33;
 }
-
 body {
   position: fixed;
   top: 0;

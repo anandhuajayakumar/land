@@ -21,7 +21,7 @@ var BG_COLOR = '#0c1117';
 var BORDER_COLOR = '#13191f';
 var CELL_HIGHLIGHT = '#0f0';
 var ELECTRON_COLOR = '#13191f';
-var FONT_COLOR = '#f44';
+var FONT_COLOR = '#a22';
 
 var FONT_FAMILY = "NexaBold";
 
@@ -864,14 +864,13 @@ shape.print('opa!');
 shape.clear();
 
 // prevent zoom
-document.addEventListener('touchmove', function (e) {
-    return e.preventDefault();
-});
+
 $(document).ready(function(){
 	
 	setTimeout(function(){
 		//shape.clear();
 		queue();
 	}, 100);
-   
+   $("#mlogo").fadeIn(6000);
+   $(".time-to").fadeToggle(6000);
 });
