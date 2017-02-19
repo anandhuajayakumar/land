@@ -2,12 +2,33 @@
 	font-family: "NexaBold";
     src: url("./fonts/NexaBold.otf") format("opentype");
 }
-@media(max-width:500px){
+@media(min-width:1001px){
 	#mlogo{
 		margin-bottom:88%;
 	}
-	.time-to{
-		display:none;
+	.time-to span{
+		font-size:35px;
+	}
+	#input p{
+		font-size:30px;
+		color:#82b1ff;
+	}
+}
+@media (max-width: 999px) and (min-width:601px){
+	#mlogo{
+		margin-bottom:80%;
+	}
+	.time-to span{
+		font-size:30px;
+	}
+	#input p{
+		font-size:25px;
+		color:#82b1ff;
+	}
+}
+@media (max-width: 600px) and (min-width:401px) {
+	#mlogo{
+		margin-bottom:75%;
 	}
 	.time-to span{
 		font-size:25px;
@@ -17,20 +38,20 @@
 		color:#82b1ff;
 	}
 }
-@media(min-width:501px){
+@media(max-width:400px){
 	#mlogo{
-		margin-bottom:75%;
-	}
-	.time-to{
-		display:none;
+		margin-bottom:70%;
 	}
 	.time-to span{
-		font-size:35px;
+		font-size:25px;
 	}
 	#input p{
-		font-size:30px;
+		font-size:20px;
 		color:#82b1ff;
 	}
+}
+.time-to{
+	display:none;
 }
 #mlogo{
 	z-index:999;
