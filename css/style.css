@@ -28,7 +28,7 @@
 }
 @media (max-width: 600px) and (min-width:401px) {
 	#mlogo{
-		margin-bottom:78%;
+		margin-bottom:90%;
 	}
 	.time-to span{
 		font-size:25px;
@@ -40,7 +40,7 @@
 }
 @media(max-width:400px){
 	#mlogo{
-		margin-bottom:75%;
+		margin-bottom:90%;
 	}
 	.time-to span{
 		font-size:25px;
