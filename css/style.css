@@ -2,9 +2,9 @@
 	font-family: "NexaBold";
     src: url("./fonts/NexaBold.otf") format("opentype");
 }
-@media(min-width:1001px){
+@media(min-width:1000px){
 	#mlogo{
-		margin-bottom:85%;
+		margin-bottom:80%;
 	}
 	.time-to span{
 		font-size:35px;
